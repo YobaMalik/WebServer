@@ -7,10 +7,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 public class PipeForm extends PipeElementForm {
     @Override
     public void visitor(ElementsVisitor visitor) {
-
     }
 
-    //lil?
     @Override
     public void chains() {
 

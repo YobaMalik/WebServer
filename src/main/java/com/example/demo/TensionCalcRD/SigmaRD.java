@@ -5,7 +5,7 @@ import com.example.demo.TensionCalcASME.SigmaASME;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SigmaRD extends SigmaASME {
+public class SigmaRD {
 
     public Map<String,double[]> arrayST=new HashMap<>();
 

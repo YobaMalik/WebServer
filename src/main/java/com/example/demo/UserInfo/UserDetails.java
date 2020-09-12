@@ -30,7 +30,7 @@ public class UserDetails implements UserDetailsService {
     @Override
     public org.springframework.security.core.userdetails.UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        User user = this.findUserbyUername(username,"");
+        User user = this.findUserbyUername(username);
         UserBuilder builder = null;
         if (user != null) {
             builder = org.springframework.security.core.userdetails.User.withUsername(username);

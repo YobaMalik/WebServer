@@ -1,7 +1,7 @@
 package com.example.demo.Pasport;
 
 
-import com.example.demo.Interface.ResultDocs;
+import com.example.demo.Interface.IResultDocs;
 import org.apache.commons.compress.utils.Lists;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -17,10 +17,9 @@ import java.util.*;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 @Service
-public class GetInfoPasp implements ResultDocs {
+public class GetInfoPasp implements IResultDocs {
 
 
     private  Queue<RowfTable<String>> allTable1=new ConcurrentLinkedQueue<>();

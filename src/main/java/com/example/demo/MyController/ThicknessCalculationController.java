@@ -3,12 +3,14 @@ package com.example.demo.MyController;
 import com.example.demo.Form.RDForm.*;
 import com.example.demo.TensionCalcRD.AbstractClass.AbstractTensionCalc;
 import com.example.demo.TensionCalcRD.AbstractClass.ElementsVisitor;
-import com.example.demo.TensionCalcRD.Elements.ReducerCalculation;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class ThicknessCalculationController {
+
     @PostMapping(path="/pipeStressCalc/pipe", headers = {"Content-type=application/json"})
     @ResponseBody
     public AbstractTensionCalc calcPipe(@RequestBody PipeForm elemForm){

@@ -7,7 +7,7 @@ import com.example.demo.PaspAddDoc.GetInfoFSVOM;
 import com.example.demo.Pasport.GetInfoPasp;
 import com.example.demo.ServerFiles;
 import com.example.demo.TestPressure.Abstract.ModelTestPressure;
-import com.example.demo.WordReplacePackage.CreateDocsFromTemplate;
+import com.example.demo.WordReplacePackage.CreateDocsFromTemplateI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,7 +31,8 @@ public class MyController {
 
     @Inject ServerFiles files;
     @Inject CreateOBRE OBRE;
-    @Inject CreateDocsFromTemplate wordFiles;
+    @Inject
+    CreateDocsFromTemplateI wordFiles;
     @Inject GetInfoPasp newTable;
     @Inject GetInfoPart45 newInfoWb;
     @Inject GetInfoFSVOM newZipArchive;
@@ -42,18 +43,14 @@ public class MyController {
 
     @RequestMapping(value = "/",method = RequestMethod.GET)
     public String homePage(HttpSession session, Principal principal,Model model) throws IOException {
-      String name = principal.getName();
-     // System.out.println(name);
         model.addAttribute("PressureInfoTest",new ModelTestPressure());
         model.addAttribute("TPTC",new TPTCForm());
-
         return "index";
     }
 
 
     @PostMapping(value="/tptc")
     public double testTPTC( TPTCForm form){
-
         return 1;
     }
 

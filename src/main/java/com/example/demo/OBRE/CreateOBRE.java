@@ -1,10 +1,8 @@
 package com.example.demo.OBRE;
 
-import com.example.demo.Interface.ResultDocs;
+import com.example.demo.Interface.IResultDocs;
 
 import com.example.demo.Pasport.RowfTable;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.springframework.stereotype.Service;
 
@@ -12,10 +10,9 @@ import java.io.*;
 import java.util.*;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 @Service
-public class CreateOBRE implements GetTableNumber, ResultDocs {
+public class CreateOBRE implements GetTableNumber, IResultDocs {
 
     private void fillWordFile(Map<String, ByteArrayOutputStream> fileArray, Map<String, ByteArrayOutputStream> resultList){
 

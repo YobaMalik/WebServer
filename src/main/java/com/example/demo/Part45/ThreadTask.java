@@ -1,6 +1,6 @@
 package com.example.demo.Part45;
 
-import com.example.demo.Interface.Rows;
+import com.example.demo.Interface.IRows;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.io.ByteArrayOutputStream;
@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Callable;
-import java.util.concurrent.ConcurrentHashMap;
 
 public class ThreadTask implements Callable<Void>,GetRejThickness {
     private InputStream fFile;
@@ -30,7 +29,7 @@ public class ThreadTask implements Callable<Void>,GetRejThickness {
             ByteArrayOutputStream bStream=new ByteArrayOutputStream()
         )
         {
-            List<Rows<String>> resultList=new ArrayList<>();
+            List<IRows<String>> resultList=new ArrayList<>();
             PaspInfoPart45 wtf=new PaspInfoPart45(wb,this.fileName);
             wtf.FillTable(resultList,"5.1","5.4");
 

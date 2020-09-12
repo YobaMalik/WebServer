@@ -4,9 +4,10 @@ import com.example.demo.TensionCalcASME.SigmaASME;
 import com.example.demo.TensionCalcASME.SpecForm;
 
 import com.example.demo.TensionCalcASME.SpecGradeMap;
-import com.example.demo.TensionCalcRD.GetGradeMap;
+import com.example.demo.TensionCalcRD.GradeGradeMap;
 import com.example.demo.TestPressure.Abstract.ModelTestPressure;
 import com.example.demo.TestPressure.CalcTestPressure;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,14 +21,17 @@ import java.util.Map;
 public class SpecGradeController {
 
     @Inject SpecGradeMap specMap;
-    @Inject GetGradeMap mapRD;
+    @Inject
+    GradeGradeMap mapRD;
+    @Inject
+    SigmaASME sigma;
 
     @PostMapping("/asmeTension")
     @ResponseBody
     public SpecForm getValueASME(@RequestBody SpecForm specForm) throws IOException {
         System.out.println(specForm.getSpec());
         System.out.println(specForm.getGrade());
-        specForm.setOutTensiton(new SigmaASME().getTension(specForm.getSpec(),specForm.getGrade(),specForm.getTemp()));
+        specForm.setOutTensiton(sigma.getTension(specForm.getSpec(),specForm.getGrade(),specForm.getTemp()));
         return specForm;
     }
 

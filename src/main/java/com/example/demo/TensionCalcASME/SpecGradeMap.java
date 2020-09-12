@@ -3,6 +3,7 @@ package com.example.demo.TensionCalcASME;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
@@ -13,19 +14,22 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 @Service
-public class SpecGradeMap implements InterfaceGetMap {
+public class SpecGradeMap implements IGradeMap {
     Map<String,HashMap<String,String>> test=new LinkedHashMap<>();
     Map<String,String> gradeMap=new HashMap<>();
 
-    private static final String DB_Path = "/home/yoba/Рабочий стол/DATABASE.xlsx";
 
-public SpecGradeMap() throws IOException {
-    this.getGradeMap();
-}
+    private String dbPath;
+
+    public SpecGradeMap(@Value("${config.path}") String dbPath )throws IOException {
+        this.dbPath = dbPath;
+
+        this.getGradeMap();
+    }
 
     @Override
     public void getGradeMap() throws IOException {
-        try (Workbook wb = new XSSFWorkbook(new FileInputStream(new File(DB_Path)));) {
+        try (Workbook wb = new XSSFWorkbook(new FileInputStream(new File(dbPath)));) {
             Map<String,HashMap<String,String>> test1=new HashMap<>();
             Sheet tSheet = wb.getSheet("SigmaT");
             for (int i = 1; i < tSheet.getLastRowNum()+1; i++) {

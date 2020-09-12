@@ -1,7 +1,7 @@
 package com.example.demo.Part45;
 
 
-import com.example.demo.Interface.Rows;
+import com.example.demo.Interface.IRows;
 import org.apache.poi.ss.usermodel.*;
 
 import java.io.FileNotFoundException;
@@ -45,7 +45,7 @@ public interface FillWorkbookSheet {
         return rejThick;
     }
 
-    default void FillSheet(Sheet iSheet, List<Rows<String>> resultList, String[] head, CellStyle style) throws FileNotFoundException, IOException {
+    default void FillSheet(Sheet iSheet, List<IRows<String>> resultList, String[] head, CellStyle style) throws FileNotFoundException, IOException {
 
         int cellIndex=iSheet.getSheetName().compareTo("отводы")==0||iSheet.getSheetName().compareTo("трубы")==0?9:11;
         int lastFilledCell=Integer.parseInt(head[head.length-1]);
