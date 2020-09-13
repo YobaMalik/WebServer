@@ -8,7 +8,7 @@ import java.io.IOException;
 @SpringBootApplication
 public class UploadApplication  {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args)  {
 		SpringApplication.run(UploadApplication.class, args);
 	}
 }

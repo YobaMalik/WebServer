@@ -3,7 +3,7 @@ package com.example.demo.TensionCalcRD.Elements;
 import com.example.demo.Form.RDForm.ElbowForm;
 import com.example.demo.Form.Abstract.PipeElementForm;
 import com.example.demo.Interface.ConvertString;
-import com.example.demo.TensionCalcASME.Interpolation;
+import com.example.demo.TensionCalcASME.ITensionASME.Interpolation;
 import com.example.demo.TensionCalcRD.AbstractClass.AbstractTensionCalc;
 
 public class ElbowCalculation extends AbstractTensionCalc implements ConvertString, Interpolation {

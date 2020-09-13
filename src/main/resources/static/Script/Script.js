@@ -26,6 +26,10 @@ function getGOSTTension() {
 
    var elm = document.getElementById('gradeTest')
    var grade = elm.options[elm.selectedIndex].text;
+
+   var temp=document.getElementById('desTempGOST').value;
+
+
    var res=document.getElementById('gostTension');
 
     fetch("asmeTension", {
@@ -33,7 +37,8 @@ function getGOSTTension() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
            spec:spec,
-           grade:grade
+           grade:grade,
+           temp:temp
         })
     }).then(function (response) {
               response.json().then(function (data) {
@@ -44,12 +49,12 @@ function getGOSTTension() {
 }
 
 
-function getGrade() {
-   var el = document.getElementById('specTest')
+function getGrade(str,url) {
+   var el = document.getElementById('spec'+str)
    var spec = el.options[el.selectedIndex].text;
-   var list = document.getElementById('gradeTest');
+   var list = document.getElementById('grade'+str);
    list.innerHTML=null;
-    fetch("getCharNum", {
+    fetch(url, {
         method: 'post',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -60,7 +65,7 @@ function getGrade() {
 
               for(var key in data) {
               list.append(new Option(data[key]));
-                 console.log(data[key]);
+                // console.log(data[key]);
                  }
 
               });
