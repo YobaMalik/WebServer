@@ -48,6 +48,7 @@ public class MyController {
     public String homePage(HttpSession session, Principal principal,Model model) throws IOException {
         model.addAttribute("PressureInfoTest",new ModelTestPressure());
         model.addAttribute("TPTC",new TPTCForm());
+        System.out.println(principal);
         return "index";
     }
 

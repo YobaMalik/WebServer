@@ -12,7 +12,7 @@ import java.util.concurrent.Callable;
 
 public class ThreadTask implements Callable<Void>,GetRejThickness {
     private InputStream fFile;
-    private String fileName;
+    private final String fileName;
     Map<String, ByteArrayOutputStream> fileStengthCalc;
     public ThreadTask(String fileName, InputStream fFile, Map<String, ByteArrayOutputStream> fileStengthCalc){
         this.fFile=fFile;

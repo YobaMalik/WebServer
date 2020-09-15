@@ -20,14 +20,7 @@ public class Security extends WebSecurityConfigurerAdapter {
 
     @Bean
     public UserDetailsService userDetailsService() {
-
-        UserDetails userDetails = null;
-        try {
-            userDetails= new UserDetails();
-        } catch (SQLException throwable) {
-            throwable.printStackTrace();
-        }
-        return userDetails;
+        return new UserDetails();
     }
 
     @Bean

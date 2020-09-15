@@ -63,12 +63,12 @@ public class SplitResultInfo implements FillWorkbookSheet {
 
     public void fillResultDocs() {
         if (this.taskList.size() > 0) {
-            this.taskList.entrySet().forEach(e -> {
-                Sheet iSheet = wb.createSheet(e.getKey());
+            this.taskList.forEach((key, value) -> {
+                Sheet iSheet = wb.createSheet(key);
                 try {
-                    String[] ara = new HeadTemplateClass().getHeadTemplate(e.getKey());
+                    String[] ara = new HeadTemplateClass().getHeadTemplate(key);
                     //Arrays.stream(ara).forEach(System.out::println);
-                    this.FillSheet(iSheet, e.getValue(), ara, this.style);
+                    this.FillSheet(iSheet, value, ara, this.style);
                 } catch (Exception e1) {
                     e1.printStackTrace();
                 }

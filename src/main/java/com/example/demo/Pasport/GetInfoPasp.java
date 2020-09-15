@@ -55,15 +55,12 @@ public class GetInfoPasp implements IResultDocs {
 
             this.resList=resultTable;
             int sheetIndexRow=1;
-            Iterator<RowfTable<String>> iter=resultTable.iterator();
-            while (iter.hasNext()){
-                RowfTable<String> n1=iter.next();
-                Row newr=sheet.createRow(sheetIndexRow);
-                for (int i=0;i<n1.getSize();i++){
-                    if (!(n1.getValue(i)==null)){
+            for (RowfTable<String> n1 : resultTable) {
+                Row newr = sheet.createRow(sheetIndexRow);
+                for (int i = 0; i < n1.getSize(); i++) {
+                    if (!(n1.getValue(i) == null)) {
                         newr.createCell(i).setCellValue(n1.getValue(i));
-                    }
-                    else {
+                    } else {
                         newr.createCell(i).setCellValue("");
                     }
                 }

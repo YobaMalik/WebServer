@@ -19,10 +19,10 @@ public interface ConvertString {
         tempString=tempString.replace(",",".");
         String[] splt=tempString.split("/");
         double val=-100000.0;
-        for (int i=0;i<splt.length;i++) {
-            if(this.stringToDouble(splt[i])) {
-                double tempVal=Double.parseDouble(splt[i]);
-                val=(val<tempVal)?tempVal:val;
+        for (String s : splt) {
+            if (this.stringToDouble(s)) {
+                double tempVal = Double.parseDouble(s);
+                val = Math.max(val, tempVal);
             }
         }
 

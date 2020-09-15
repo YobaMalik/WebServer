@@ -7,13 +7,11 @@ import java.util.List;
 
 public class RowfTable<T> implements IRows<T> {
     private List<T> RowList=new ArrayList<>();
+
     public void addValue(int index, T iValue){
-        if(iValue!=null) {
-            RowList.add(index, iValue);
-        } else {
-            RowList.add(index, (T) "");
-        }
+        RowList.add(index, iValue);
     }
+
     public void addValue(T iValue) {
         RowList.add(iValue);
     }

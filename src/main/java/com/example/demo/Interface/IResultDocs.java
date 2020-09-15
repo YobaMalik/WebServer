@@ -4,8 +4,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 public interface IResultDocs {
-        void createDocs(Map<String, ByteArrayOutputStream> fileInput, Map<String, ByteArrayOutputStream> resultList, ExecutorService newTask ) throws IOException;
+        void createDocs(Map<String, ByteArrayOutputStream> fileInput,
+                        Map<String, ByteArrayOutputStream> resultList,
+                        ExecutorService newTask ) throws IOException;
 }

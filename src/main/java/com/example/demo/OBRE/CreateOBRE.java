@@ -43,7 +43,9 @@ public class CreateOBRE implements GetTableNumber, IResultDocs {
     }
 
     @Override
-    public void createDocs(Map<String, ByteArrayOutputStream> fileInput, Map<String, ByteArrayOutputStream> resultList, ExecutorService newTask ) throws IOException {
+    public void createDocs(Map<String, ByteArrayOutputStream> fileInput,
+                           Map<String, ByteArrayOutputStream> resultList,
+                           ExecutorService newTask ) {
 
         this.fillWordFile(fileInput, resultList);
     }

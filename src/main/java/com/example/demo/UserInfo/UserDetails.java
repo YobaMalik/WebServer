@@ -6,8 +6,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import javax.transaction.Transaction;
-import javax.websocket.Session;
 import java.sql.*;
 
 
@@ -23,9 +21,6 @@ public class UserDetails implements UserDetailsService {
     private String pass ;
     Connection con ;
 
-    public UserDetails() throws SQLException {
-
-    }
 
     @Override
     public org.springframework.security.core.userdetails.UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -54,7 +49,7 @@ public class UserDetails implements UserDetailsService {
         return null;
     }
 
-    private User findUserbyUername(String username,String z) {
+    private User findUserbyUername(String username,String z)  {
 
 
         User user = null;
