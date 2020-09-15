@@ -48,7 +48,6 @@ public class SpecGradeController {
 
 
     @RequestMapping(value = "/stressCalculation", method = RequestMethod.GET)
-    @Secured(value = {"ADMIN"})
     public String uploadMultiFileHandler(Model model) {
         model.addAttribute("specForm",new SpecForm());
         model.addAttribute("mapList", mapASME);

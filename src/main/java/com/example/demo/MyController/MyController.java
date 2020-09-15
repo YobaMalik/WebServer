@@ -9,6 +9,9 @@ import com.example.demo.ServerFiles;
 import com.example.demo.TestPressure.Abstract.ModelTestPressure;
 import com.example.demo.WordReplacePackage.CreateDocsFromTemplateI;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -103,6 +106,7 @@ public class MyController {
     }
 
     @RequestMapping(value = "/res", method = RequestMethod.GET)
+    @Secured("ROLE_ADMIN")
     public String getResTHML(HttpServletRequest request) {
         return "downloadAllResult";
     }
@@ -164,6 +168,7 @@ public class MyController {
     }
 
     @RequestMapping(value = "/uploadMultiFile", method = RequestMethod.GET)
+    @Secured("ROLE_ADMIN")
     public String uploadMultiFileHandler(Model model) throws Exception {
         Form form = new Form();
         model.addAttribute("form", form);

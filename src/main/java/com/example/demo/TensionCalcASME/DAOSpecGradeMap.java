@@ -113,15 +113,13 @@ public class DAOSpecGradeMap implements IGradeMap, Interpolation {
                             Double.toString(tempInterval.getMaxTemp()).replace(".0","")));
                 }
                 resultTension=this.interpolation(tempInterval.getMinTemp(),tempInterval.getMaxTemp(),min,max,desTemp);
-
             }
-            System.out.println(resultTension);
+            //System.out.println(resultTension);
         }
-        return resultTension;
+        return (resultTension==0)?4000:resultTension;
     }
 
     public double getTension(String spec, String grade, double temp) throws  SQLException {
-
         return Math.min(this.getTensionValue(spec, grade,"T", temp,TempInterval.ARRAY_T) / 1.5,
                 this.getTensionValue(spec, grade,"B", temp,TempInterval.ARRAY_B) / 2.4);
 

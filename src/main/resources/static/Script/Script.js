@@ -21,10 +21,10 @@
 }
 */
 function getGOSTTension() {
-   var el = document.getElementById('specTest')
+   var el = document.getElementById('specASME')
    var spec = el.options[el.selectedIndex].text;
 
-   var elm = document.getElementById('gradeTest')
+   var elm = document.getElementById('gradeASME')
    var grade = elm.options[elm.selectedIndex].text;
 
    var temp=document.getElementById('desTempGOST').value;
