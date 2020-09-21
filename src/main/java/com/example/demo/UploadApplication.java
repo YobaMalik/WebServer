@@ -1,18 +1,19 @@
 package com.example.demo;
 
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import java.io.IOException;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class UploadApplication  {
+public class UploadApplication extends SpringBootServletInitializer {
 
 	public static void main(String[] args)  {
 		SpringApplication.run(UploadApplication.class, args);
 	}
-}
 
-//chdir C:\Users\Yoba\IdeaProjects\Upload v18 + react\src\main\resources\static
-//npm run dev
-//npm run build
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+		return builder.sources(UploadApplication.class);
+	}
+}
