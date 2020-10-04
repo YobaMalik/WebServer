@@ -5,6 +5,7 @@ import com.example.demo.TensionCalcASME.DAOSpecGradeMap;
 import com.example.demo.TensionCalcRD.DAOSigmaGOST;
 import com.example.demo.TestPressure.Abstract.ModelTestPressure;
 import com.example.demo.TestPressure.CalcTestPressure;
+import org.springframework.context.annotation.Scope;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +16,7 @@ import java.sql.SQLException;
 import java.util.Set;
 
 @Controller
+@Scope("session")
 public class SpecGradeController {
 
     @Inject DAOSpecGradeMap mapASME;
