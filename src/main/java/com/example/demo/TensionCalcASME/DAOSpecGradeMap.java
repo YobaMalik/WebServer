@@ -81,7 +81,7 @@ public class DAOSpecGradeMap implements IGradeMap, Interpolation {
         {
             TempInterval tempInterval=new TempInterval(desTemp, array);
 
-            if(tempInterval.getMaxTemp()==0){
+            if(tempInterval.getMaxTemp()==0&&tempInterval.getMinTemp()!=0){
                 String request="SELECT TEMP_"+
                         Double.toString(tempInterval.getMinTemp()).replace(".0","")+
                 " FROM ASME_SIGMA_"+table+" WHERE SPEC_NO="+"'"+spec+"' AND TYPE_GRADE="+"'"+grade+"'";
@@ -91,17 +91,20 @@ public class DAOSpecGradeMap implements IGradeMap, Interpolation {
                             Double.toString(tempInterval.getMinTemp()).replace(".0","")));
                 }
             }
-
+            System.out.println(tempInterval.getMinTemp());
+            System.out.println(tempInterval.getMaxTemp());
             if(tempInterval.getMaxTemp()!=0){
                 double min = 0;
                 double max = 0;
-                String requestMin="SELECT TEMP_"+
-                        Double.toString(tempInterval.getMinTemp()).replace(".0","")+
-                        " FROM ASME_SIGMA_"+table+" WHERE SPEC_NO="+"'"+spec+"' AND TYPE_GRADE="+"'"+grade+"'";
-                ResultSet setmin= statement.executeQuery(requestMin);
-                while(setmin.next()){
-                    min=Double.parseDouble(setmin.getString("TEMP_"+
-                            Double.toString(tempInterval.getMinTemp()).replace(".0","")));
+                if(tempInterval.getMinTemp()!=0) {
+                    String requestMin = "SELECT TEMP_" +
+                            Double.toString(tempInterval.getMinTemp()).replace(".0", "") +
+                            " FROM ASME_SIGMA_" + table + " WHERE SPEC_NO=" + "'" + spec + "' AND TYPE_GRADE=" + "'" + grade + "'";
+                    ResultSet setmin = statement.executeQuery(requestMin);
+                    while (setmin.next()) {
+                        min = Double.parseDouble(setmin.getString("TEMP_" +
+                                Double.toString(tempInterval.getMinTemp()).replace(".0", "")));
+                    }
                 }
 
                 String requestMax="SELECT TEMP_"+

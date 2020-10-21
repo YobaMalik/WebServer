@@ -40,21 +40,21 @@ public class TempInterval {
     private void getTempInterval(double temp,double[] array){
         if(temp<array[0]) {
             this.minTemp=array[0];
-        }
+        } else
 
         if(temp>array[array.length-1]){
+            this.minTemp=array[array.length-2];
             this.maxTemp=array[array.length-1];
-        }
-
-        for (int i=0;i<array.length-1;i++){
-            if(array[i]==temp) {
-                this.minTemp=array[i];
+        } else {
+            for (int i = 0; i < array.length - 1; i++) {
+                if (array[i] == temp) {
+                    this.minTemp = array[i];
+                }
+                if (array[i] < temp && array[i + 1] > temp) {
+                    this.minTemp = array[i];
+                    this.maxTemp = array[i + 1];
+                }
             }
-            if(array[i]<temp&&array[i+1]>temp) {
-              this.minTemp=array[i];
-              this.maxTemp=array[i+1];
-            }
-
         }
 
     }
