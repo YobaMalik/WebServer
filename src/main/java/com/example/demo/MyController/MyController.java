@@ -1,4 +1,5 @@
 package com.example.demo.MyController;
+import com.example.demo.Certification.TPTCCategory;
 import com.example.demo.Form.Form;
 import com.example.demo.Form.TPTCForm;
 import com.example.demo.OBRE.CreateOBRE;
@@ -45,9 +46,10 @@ public class MyController {
         return "index";
     }
 
-    @PostMapping(value="/tptc")
-    public double testTPTC( TPTCForm form){
-        return 1;
+    @PostMapping(value="/TPTC032")
+    @ResponseBody
+    public TPTCCategory testTPTC( @RequestBody TPTCForm form){
+        return new TPTCCategory(form);
     }
 
     @RequestMapping(value = "/wtfGet", method = RequestMethod.GET)
